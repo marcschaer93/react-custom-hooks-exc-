@@ -1,68 +1,33 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Cards
 
-## Available Scripts
+This exercise focuses on writing custom hooks in React. The provided app requires some refactoring.
 
-In the project directory, you can run:
+## Step One: Read the Code
 
-### `npm start`
+Download and set up the app. It utilizes two APIs (Deck of Cards and Pokemon) to generate different cards on the page. Understand the component hierarchy and how the code functions.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Step Two: useFlip
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Create a `hooks.js` file and write a custom hook called `useFlip`. This hook should manage the flip state of cards and return an array with the current flip state and a function to toggle it. Refactor `PokemonCard` and `PlayingCard` to use this hook.
 
-### `npm test`
+## Step Three: useAxios in PlayingCardList
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Refactor the `PlayingCardList` component to use the `useAxios` custom hook. `useAxios` should handle AJAX requests by accepting a URL and returning an array of data from the requests along with a function to add new data.
 
-### `npm run build`
+## Step Four: useAxios in PokeDex
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Modify `useAxios` to accept a base URL and provide flexibility for adding to the response data array in state. Refactor `PokeDex` to utilize this updated `useAxios`. Ensure that `PlayingCardList` continues to function correctly.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Further Study: Removing response data
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Add buttons to erase all playing cards or all Pokemon cards from state. Update `useAxios` to include a function to remove all data from the array in state.
 
-### `npm run eject`
+## Further Study: Minimizing state
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Implement formatting functions for playing cards and Pokemon cards. Refactor `useAxios` to accept these formatting functions. The arrays in state for `PlayingCardList` and `PokeDex` should only contain necessary data.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Further Study: useLocalStorage hook
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Create a `useLocalStorage` hook that syncs state data with local storage. Refactor `useAxios` to use `useLocalStorage` instead of `useState` to persist cards even after a page refresh.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Show your progress at this stage!
